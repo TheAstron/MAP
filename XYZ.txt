@@ -6,3 +6,6 @@ sudo apt-get install bc build-essential chrpath diffstat gawk git libncurses5-de
 git clone git://git.yoctoproject.org/poky -b kirkstone
 source oe-init-build-env build-native
 bitbake core-image-sato
+bitbake core-image-sato
+ERROR: The following required tools (as specified by HOSTTOOLS) appear to be unavailable in PATH, please install them in order to proceed:
+  lz4c
