@@ -5,3 +5,4 @@ sed -i 's/CONFIG_SYSTEM_REVOCATION_KEYS=.*/CONFIG_SYSTEM_REVOCATION_KEYS=""/' .c
 sudo apt-get install bc build-essential chrpath diffstat gawk git libncurses5-dev pkg-config socat subversion texi2html texinfo u-boot-tools
 git clone git://git.yoctoproject.org/poky -b kirkstone
 source oe-init-build-env build-native
+bitbake core-image-sato
