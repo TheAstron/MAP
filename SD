@@ -1,0 +1,12 @@
+sudo mkfs.vfat /dev/sdb1
+sudo mkfs.ext4 /dev/sdb2
+sudo mount /dev/sdb1 /mnt/boot
+sudo mount /dev/sdb2 /mnt/rootfs
+sudo cp output/images/MLO /mnt/boot/
+sudo cp output/images/u-boot.img /mnt/boot/
+sudo cp output/images/uEnv.txt /mnt/boot/
+sudo cp output/images/zImage /mnt/boot/
+sudo cp -r output/images/*.dtb /mnt/boot/
+sudo tar -xvf output/images/rootfs.tar -C /mnt/rootfs
+sudo umount /mnt/boot
+sudo umount /mnt/rootfs
