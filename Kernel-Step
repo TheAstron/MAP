@@ -1,1 +1,5 @@
-
+sudo apt update
+sudo apt upgrade
+sudo apt install build-essential libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf llvm bc binutils bison dwarves flex gcc git gnupg2 gzip libelf-dev libncurses5-dev libssl-dev make openssl perl-base rsync tar xz-utils zstd
+git clone https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+cd linux
