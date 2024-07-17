@@ -15,6 +15,6 @@ sudo make install
 sudo vi /etc/default/grub
 change following things:
 => change timeout hidden to menu
-=> comment timeout = 0
+#timeout = 0 (Comment out)
 sudo update-grub
 sudo reboot
