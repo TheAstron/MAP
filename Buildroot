@@ -1,0 +1,5 @@
+git clone https://github.com/buildroot/buildroot.git
+cd buildroot
+make beaglebone_defconfig
+make source (Download all files to build offline)
+make
