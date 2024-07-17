@@ -3,3 +3,18 @@ sudo apt upgrade
 sudo apt install build-essential libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf llvm bc binutils bison dwarves flex gcc git gnupg2 gzip libelf-dev libncurses5-dev libssl-dev make openssl perl-base rsync tar xz-utils zstd
 git clone https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
 cd linux
+git checkout v6.9.3
+cp /boot/config-"$(uname -r)" .config
+sed -i 's/CONFIG_DEBUG_INFO_BTF=y/# CONFIG_DEBUG_INFO_BTF is not set/' .config
+sed -i 's/CONFIG_SYSTEM_TRUSTED_KEYS=.*/CONFIG_SYSTEM_TRUSTED_KEYS=""/' .config
+sed -i 's/CONFIG_SYSTEM_REVOCATION_KEYS=.*/CONFIG_SYSTEM_REVOCATION_KEYS=""/' .config
+make olddefconfig
+make -j$(nproc) 
+sudo make modules_install
+sudo make install
+sudo vi /etc/default/grub
+change following things:
+=> change timeout hidden to menu
+=> comment timeout = 0
+sudo update-grub
+sudo reboot
