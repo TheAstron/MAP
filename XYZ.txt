@@ -9,3 +9,14 @@ bitbake core-image-sato
 bitbake core-image-sato
 ERROR: The following required tools (as specified by HOSTTOOLS) appear to be unavailable in PATH, please install them in order to proceed:
   lz4c
+
+
+
+&gpio2{
+        	status = "okay";
+        	test_led{
+            		gpio-hog;
+            		gpios = <2 GPIO_ACTIVE_HIGH>;
+            		output-high;
+                 };
+    };
