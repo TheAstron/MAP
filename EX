@@ -1,3 +1,13 @@
+Task :   Sysfs Practice
+        a.  Eliminate the goto labels from the LKM from example code 1, so that the
+            behavior of this function remains unchanged in case of an exception.
+       b. Change the LKM from example code 1 or example code 2  so that it creates a
+           directory with a file directly in the /sys directory.
+       c. Write a  LKM that will create a file in the module’s subdirectory (under the /sys path) into which the
+           user will be able to write only natural numbers from 1 to 7. All other values should be ignored. Once
+          the correct number is entered, the module should create as many new files in the subdirectory as the          given value is. Names of those new files can be created by adding continuous numbers to the primary
+         file name. The module should store random numbers in the files. Files along with the subdirectory
+          should be removed by the module exit.
 /* CODE 1 */
 
 #include<linux/module.h>
