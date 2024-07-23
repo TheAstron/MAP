@@ -20,3 +20,15 @@ ERROR: The following required tools (as specified by HOSTTOOLS) appear to be una
             		output-high;
                  };
     };
+
+
+
+Write the driver with ISR routine ( here you can take one GPIO as example) Driver should print the message from ISR routine . ISR should call on GPIO on high level.
+
+ 
+
+Make loop back with cable between UART2_TXD and UART2_RXD and send and receive data .Both data should be same. Identify which driver are going to be used , DTS changes and way to validate from user space.
+
+ 
+
+Identify I2C bus which we are going to use to connect Temp. Sensor.  Identify the driver for the same. Update the DTS, understand the datasheet, driver probe and understand the sequence of driver flow. Capture the temp. data from user space . Add own SYSFS entry to read any register.
