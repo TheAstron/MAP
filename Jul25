@@ -1,0 +1,28 @@
+#include <linux/kernel.h>
+#include <linux/module.h>
+#include <linux/ioport.h>
+ 
+#define MY_BASSPORT 0x0045
+#define NUMBER_PORT 2
+#define IONAME "godioport"
+ 
+MODULE_LICENSE("GPL");
+ 
+static int __init io_init(void)
+{
+	if(!request_region(MY_BASSPORT ,NUMBER_PORT , IONAME)){
+		pr_err("Failed: port already in use\n");
+	}
+	else
+	{
+		pr_info("Port allocated\n");
+	}
+}
+ 
+static void __exit io_exit(void)
+{
+	release_region(MY_BASSPORT, NUMBER_PORT);
+}
+ 
+module_init(io_init);
+module_exit(io_exit);
