@@ -1,1 +1,15 @@
 Make loop back with cable between UART2_TXD and UART2_RXD and send and receive data .Both data should be same. Identify which driver are going to be used , DTS changes and way to validate from user space.
+&uart2 {
+             status = "okay";
+             pinctrl-names = "default";
+             pinctrl-0 = <&uart2_pins>;
+};
+ 
+&am33xx_pinmux {
+             uart2_pins: pinmux_uart2_pins {
+                            pinctrl-single,pins = <
+                                          AM33XX_PADCONF(AM335X_PIN_SPI0_D0, PIN_OUTPUT, MUX_MODE1)
+                                          AM33XX_PADCONF(AM335X_PIN_SPI0_SCLK, PIN_INPUT, MUX_MODE1)
+                            >;
+             };
+};
