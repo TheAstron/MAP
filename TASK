@@ -1,0 +1,1 @@
+Make loop back with cable between UART2_TXD and UART2_RXD and send and receive data .Both data should be same. Identify which driver are going to be used , DTS changes and way to validate from user space.
