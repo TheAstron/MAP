@@ -1,0 +1,36 @@
+1. Implement and cross compile Hello world module for BBB.
+
+2. Implement LKM  to print hostname  and email ID in the kernel logs. Name your init and cleanup functions as "start" and "stop", respectively, instead of init_module and cleanup_module .
+
+3. Implement LKM  to try out various kernel logging levels using printk . Print a string to the "terminal" using one of the kernel log levels. Also find out all the log levels that print to the terminal by default.
+
+4. Implement LKM  to crash the kernel in the easiest.  Verify by looking at the kernel logs for a kernel oops message. Then reboot.
+
+5. Find out location of  symbol LINUX_VERSION_CODE  in kernel source which represents the code for current kernel version. For a kernel version a.b.c , this code is calculated as: a * (2ˆ16) + b * (2ˆ8) + c . Implement LKM to calculate and print the kernel version, by using and decoding this code. Find the location of min3 and max3 macros in Linux kernel source. Implement LKM that prints the minimum and maximum value among three signed integers taken in from command line.
+
+6. Implement  LKM a module to accept an array of integers as the command-line argument. The number of elements should be fixed (say 10) and the module should exit after printing suitable message if the number of elements passed is not equal to 10; print the integers in the array otherwise.
+
+7. Extend above LKM to Sort the integers in decreasing order and print them. Define your own function or find & use the one available in Linux  headers.
+
+8. Implement LKM to create and manipulate a kernel linked list. Use the struct definition given below for the linked list node. Your module should take a number from the command-line which will specify the number of nodes to add in the linked list.
+For each node, the member num should be a random number generated using an inbuilt kernel function, and the member sqrt should contain the square root of num (decimal part not needed).
+Add the nodes to the end of the list and then print the members of the nodes in the linked list in
+reverse, and then delete and free all the nodes in the list.
+
+9. Which function to call for measuring how much time required to insert new node in linked list (ex.8). Implement LKM to get the time in nanoseconds. 
+
+10. Load the module you wrote in Exercise 2 . Then implement LKM which accepts the name of that kernel module as command-line argument and traverse the list of loaded kernel modules to find it. When you find it, print its name as well as call its "init" function!
+ 
+11. Implement LKM which prints output in terminal instead of dmesg or kernel log.
+
+12. Implement LKM which acts as modinfo command. 
+
+13. Implement LKM and make it persistent, i.e. it should automatically load on system boot. Reboot and check if it is loaded using lsmod .
+
+14. Implement LKM to print  the current date and time. Keep the GMT time zones in mind.
+
+15. Implement LKM  to access a take a command-line argument which sets the value of a variable. Then access this variable from another kernel module. Use EXPORT_SYMBOL in the first module and access it in another module by using extern.
+
+16. Implement LKM to print the contents of all the x86_64 registers that the kernel uses, namely cr0, cr2, cr3, cr4 and cr8. Using the value returned from cr4, check if PAE (Physical Address Extension) is enabled on your machine.
+
+17. Implement LKM to  get a pointer to the task that is currently executing on the current CPU i.e. calculate the value of current macro.
