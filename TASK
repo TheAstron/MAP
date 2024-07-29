@@ -13,3 +13,38 @@ Make loop back with cable between UART2_TXD and UART2_RXD and send and receive d
                             >;
              };
 };
+
+
+
+int __init hello_init(void)
+{
+	unsigned char regb = rtc_read(REGB);
+	pr_info("Register B:%02x\n", regb);
+	if (regb & 0x01) {
+	pr_info("Daylight saving enabled\n");
+	}
+	 else {
+	pr_info("Daylight saving disabled\n");
+ 
+	}
+	if (regb & 0x02) {
+		pr_info("24 Hour Mode\n");
+	}
+	 else {
+		pr_info("12 Hour Mode\n");
+	}
+	if (regb & 0x04) {
+		pr_info("Data in Binary Format\n");
+	}
+	 else {
+		pr_info("Data in BCD Format\n");
+	}
+}
+ 
+ 
+void __exit hello_exit(void){
+}
+ 
+MODULE_LICENSE("GPL");
+module_init(hello_init);
+module_exit(hello_exit);
