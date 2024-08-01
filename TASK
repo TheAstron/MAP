@@ -1,3 +1,17 @@
+Task 9 : Device Tree  - Consider Target  Hardware as Beagle Bone Black 
+ 
+
+            a. Create a basic Device Tree Source (DTS) file for a simple system with a CPU and memory.
+
+            b. Add a UART device to the DTS file created in Exercise a
+
+            c. Define a GPIO controller and a simple LED connected to a GPIO pin in the DTS file
+
+            d. Add an I2C bus and an EEPROM device to the DTS.
+
+            e. Add an SPI controller and a connected flash memory device to the DTS.
+
+
 
 bootpart=0:1
 devtype=mmc
