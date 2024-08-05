@@ -1,3 +1,15 @@
+Task 11:  Write GPIO device driver to blink the LED using BBB.  Extend it to invoke driver through programmed IO, Memory Mapped IO and user application program using  IOPERM and IOPL.
+
+ 
+
+Task12: Write Device driver for Rotary encoder using BBB.
+
+
+
+
+
+
+
 Task 9 : Device Tree  - Consider Target  Hardware as Beagle Bone Black 
  
 
