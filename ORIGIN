@@ -1,0 +1,59 @@
+const int buttonPin = 7;
+const int ledPins[] = {2, 3, 4};
+int buttonPressCount = 0;
+bool buttonPressed = false;
+
+void setup() {
+  for (int i = 0; i < 3; i++) {
+    pinMode(ledPins[i], OUTPUT);
+    digitalWrite(ledPins[i], HIGH);
+  }
+  pinMode(buttonPin, INPUT_PULLUP);
+}
+
+void delayX() {
+  unsigned long startTime = millis();
+  while (millis() - startTime < 3000) {
+    if (digitalRead(buttonPin) == LOW && !buttonPressed) {
+      buttonPressCount = (buttonPressCount + 1) % 3;
+      buttonPressed = true;
+      break;
+    }
+    if (digitalRead(buttonPin) == HIGH) {
+      buttonPressed = false;
+    }
+  }
+}
+
+void loop() {
+  if (buttonPressCount == 0) {
+    for (int i = 0; i < 3; i++) {
+      digitalWrite(ledPins[i], HIGH);
+    }
+    delayX();
+  }
+
+  while (buttonPressCount == 1) {
+    for (int i = 0; i < 3; i++) {
+      digitalWrite(ledPins[i], LOW);
+    }
+    for (int i = 0; i < 3; i++) {
+      digitalWrite(ledPins[i], HIGH);
+      delayX();
+      digitalWrite(ledPins[i], LOW);
+      if (buttonPressCount != 1) break;
+    }
+  }
+
+  while (buttonPressCount == 2) {
+    for (int i = 0; i < 3; i++) {
+      digitalWrite(ledPins[i], LOW);
+    }
+    for (int i = 2; i >= 0; i--) {
+      digitalWrite(ledPins[i], HIGH);
+      delayX();
+      digitalWrite(ledPins[i], LOW);
+      if (buttonPressCount != 2) break;
+    }
+  }
+}
