@@ -3,3 +3,10 @@ sudo apt install git repo python2.7 gcc g++ make libncurses5 lib32stdc++6 ​zli
 sudo ln -sf /bin/bash /bin/sh 
 mkdir sda660 && cd sda660​
 repo init -u https://git.codelinaro.org/clo/la/platform/manifest.git -b release -m LA.UM.7.2.c25-09100-sdm660.0.xml --repo-url=https://git.codelinaro.org/clo/tools/repo.git --repo-branch=qc-stable​
+repo sync -j$(nproc)
+cd ~/
+wget https://supportcenter.einfochips.com/download/505/einfochips-660/8071/eragon660_and-9-0-0_ei-2-0-0-2.zip
+unzip eragon660_and-9-0-0_ei-2-0-0.zip
+$ cd sda660​
+$ tar –xvzf ~/ERAGON660_AND.9.0.0_EI.2.0.0/source/proprietary.tar.gz vendor/​
+$ tar –xvzf ~/ERAGON660_AND.9.0.0_EI.2.0.0/source/ patches.tar.gz  .​
