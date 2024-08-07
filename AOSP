@@ -1,0 +1,5 @@
+sudo apt update && sudo apt upgrade 
+sudo apt install git repo python2.7 gcc g++ make libncurses5 lib32stdc++6 ​zlib1g:i386 libxml2-utils libssl-dev m4 openjdk-8-jdk openjdk-8-jre adb fastboot
+sudo ln -sf /bin/bash /bin/sh 
+mkdir sda660 && cd sda660​
+repo init -u https://git.codelinaro.org/clo/la/platform/manifest.git -b release -m LA.UM.7.2.c25-09100-sdm660.0.xml --repo-url=https://git.codelinaro.org/clo/tools/repo.git --repo-branch=qc-stable​
