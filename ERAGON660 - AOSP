@@ -30,3 +30,15 @@ make -j$(nproc)
 
 cd sda660/out/target/product/sdm660_64​
 ls -l *.img
+
+#Connect Eragon 660 with your host device
+adb reboot bootloader <boot_device_to_fastboot>​
+If not once done go to Eragon extracted directory and go in bootloaders and run that flashall.sh or .bat file first
+
+# use below command to flash via fastboot ​
+fastboot flash -S 256M  boot_a boot.img
+fastboot flash -S 256M  vendor_a vendor.img​
+fastboot flash -S 256M  system_a system.img​
+fastboot flash -S 256M  persist persist.img​
+fastboot flash -S 256M  userdata userdata.img​
+fastboot oem select-display-panel osd_otm1901a_1080p_video
