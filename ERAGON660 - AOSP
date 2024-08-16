@@ -1,0 +1,32 @@
+Minimumm Rquiretment:
+Ubuntu Version : Ubuntu 16.04 LTS​
+Disk Space : 250GB ​
+RAM : 16GB​
+CPU Cores : 8 Cores(Minimum)
+
+sudo apt update && sudo apt upgrade 
+sudo apt install git repo python2.7 gcc g++ make libncurses5 lib32stdc++6 ​zlib1g:i386 libxml2-utils libssl-dev m4 openjdk-8-jdk openjdk-8-jre adb fastboot
+sudo ln -sf /bin/bash /bin/sh 
+mkdir sda660 && cd sda660​
+/*Changed / repo init -u https://git.codelinaro.org/clo/la/platform/manifest.git -b release -m LA.UM.7.2.c25-09100-sdm660.0.xml --repo-url=https://git.codelinaro.org/clo/tools/repo.git --repo-branch=qc-stable​
+$repo init -u https://git.codelinaro.org/clo/la/platform/manifest -b release -m LA.UM.7.2.r1-05500-sdm660.0.xml --depth=1​
+repo sync -j$(nproc)
+
+cd ~/
+wget https://supportcenter.einfochips.com/download/505/einfochips-660/8071/eragon660_and-9-0-0_ei-2-0-0-2.zip
+unzip eragon660_and-9-0-0_ei-2-0-0.zip
+cd sda660​
+tar –xvzf ~/ERAGON660_AND.9.0.0_EI.2.0.0/source/proprietary.tar.gz vendor/​
+tar –xvzf ~/ERAGON660_AND.9.0.0_EI.2.0.0/source/ patches.tar.gz  .​
+
+cd ~/sda660/patches/<path_to_patch_location>​
+Note: First navigate to the directory patches are for:​ <Path to location referes to the same path as by goind in source dir>
+git am ~/sda660/patches/<path_to_patch_location>/<patch_name>.patch
+
+cd sda660​
+source build/envsetup.sh​
+lunch sdm660_64-userdebug​
+make -j$(nproc)
+
+cd sda660/out/target/product/sdm660_64​
+ls -l *.img
